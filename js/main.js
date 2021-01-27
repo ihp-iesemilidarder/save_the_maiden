@@ -103,21 +103,14 @@ window.onload=()=>{
     //Function that is executed if the user clicks the HERO's buttons
     function actionHero(DOM){
         let btnActive = document.querySelector(".btn-active");
-        if(btnActive){
-            btnActive.classList.toggle('btn-active');
-        };
+
+        (btnActive)?btnActive.classList.toggle('btn-active'):null;
        
         DOM.classList.add("btn-active"); // add new class 'btn-active'
 
-        document.getElementById("hero").style.backgroundImage = `url(./img/${DOM.id}.png)`;
+        document.querySelector("#hero").style.backgroundImage = `url(./img/${DOM.id}.png)`;
         
-        /*I got the HERO object and I become it in array, so I iterate it and delete each element*/
-        let listObj = Object.entries(HERO);
-        for(let item of listObj){
-            delete HERO[item[0]];
-        }
-
-        // With the object empty, add each elements' group
+        // I empty the object
         HERO.name = DOM.id;
         HERO.magic = [];
         HERO.weapons = [];
@@ -148,10 +141,10 @@ window.onload=()=>{
 
         /*Each times that, the user clicks a button, it when empty all the object and update the
         character's name, also all the DOM with class 'active' are delete, and his checbox also.*/
-        const actives = document.getElementsByClassName("active");
-        Array.from(actives).forEach((element)=>{
+        const actives = document.querySelectorAll(".active");
+        actives.forEach((element)=>{
             element.classList.remove("active");
-            document.getElementById(element.id + "Check").checked = false;
+            document.querySelector(`#${element.id}Check`).checked = false;
         });
     }
 
@@ -177,64 +170,63 @@ window.onload=()=>{
                 }else{
                     HERO[group].push(dom);
                     ActionSkills(group,dom,"+");
-                    document.getElementById(DOM.id).classList.add("active");
-                    document.getElementById(DOM.id + "Check").checked = true;
+                    document.querySelector(`#${DOM.id}`).classList.add("active");
+                    document.querySelector(`#${DOM.id}Check`).checked = true;
                 }
             }else{
                 HERO[group].splice(HERO[group].indexOf(dom),1);
                 ActionSkills(group,dom,"-");
-                document.getElementById(DOM.id).classList.remove("active");
-                document.getElementById(DOM.id + "Check").checked = false;
+                document.querySelector(`#${DOM.id}`).classList.remove("active");
+                document.querySelector(`#${DOM.id}Check`).checked = false;
             }
         }
     }
 
     // For each option, create a eventListener
     function addListener(list,group){
-        for(let btn of list){
-            document.getElementById(btn.id.toLowerCase()).addEventListener("click",function(){
+        list.forEach((btn)=>{
+            document.querySelector(`#${btn.id.toLowerCase()}`).addEventListener("click",function(){
                 (group == "btnHero")?actionHero(this):actionDefault(this,group);
                 loadPoints();
             });
-        }
+        });
     }
 
     //Active/Inactive the option, when it is clicked
     function checkOption(list){
-        for(let type of list){
-            let elements = document.getElementsByClassName(type);
+        list.forEach(function(type){
+            let elements = document.querySelectorAll(`.${type}`);
             let group = elements[0].classList.value.replace("Check","");
-            for(let item of elements){
+            elements.forEach(function(item){
                 document.getElementById(item.id).addEventListener("click",function(){
                     if(Object.entries(HERO)[0][1] == null){
                         showAlert("You should select a character","error");
-                        document.getElementById(this.id).checked = false;
+                        document.querySelector(`#${this.id}`).checked = false;
                     }else{
                         let elementCheck = item.id;
                         let elementButton = elementCheck.replace("Check","");
                         if(item.checked == true){
                             if(group == "gems" && HERO.gems.length == 2){
                                 showAlert("If you want more gems, you should go to store","error");
-                                document.getElementById(elementCheck).checked = false;
+                                document.querySelector(`#${elementCheck}`).checked = false;
                                 return false;
                             }
                             HERO[group].push(elementButton);
                             // Update the skills' points
                             ActionSkills(group,elementButton,"+");
-                            document.getElementById(elementButton).classList.add("active");
-                            document.getElementById(elementCheck).checked = true;
+                            document.querySelector(`#${elementButton}`).classList.add("active");
+                            document.querySelector(`#${elementCheck}`).checked = true;
                         }else{
                             HERO[group].splice(HERO[group].indexOf(elementButton),1);
                             // Update the skills' points
                             ActionSkills(group,elementButton,"-");
-                            document.getElementById(elementButton).classList.remove("active");
-                            document.getElementById(elementCheck).checked = false;
+                            document.querySelector(`#${elementButton}`).classList.remove("active");
+                            document.querySelector(`#${elementCheck}`).checked = false;
                         }
                     }
                 });
-            }
-        }
-        //ActionGems();
+            });
+        });
     }
     let chooseOptions=()=>{
         let typeSelect = ["btnHero","weapons","gems","magic"];
@@ -243,7 +235,7 @@ window.onload=()=>{
         // For each item's type, get the group, and the btns
         typeSelect.forEach(type=>{
             let group  =  type;
-            const btns = document.getElementsByClassName(type);
+            const btns = document.querySelectorAll(`.${type}`);
             // For each option, create a eventListener
             addListener(btns,group);
         });
