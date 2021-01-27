@@ -1,0 +1,390 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*show alert*/
+#showAlert{
+    display: block;
+    background: black;
+    width: 100%;
+    height: 5vh;
+    position: fixed;
+    padding: 1vh;
+    color: white;
+    font-size: 1.2em;
+    font-family: "Arial";
+    box-shadow: 0px 0px 20px black;
+    top:-100vh;
+    transition: .8s;
+}
+/*areas grid top*/
+body > div:first-child #Witcher{
+    grid-area: Witcher;
+}
+body > div:first-child #Aragon{
+    grid-area: Aragon;
+}
+body > div:first-child #Vampire{
+    grid-area: Vampire;
+}
+body > div:first-child #Sirocu{
+    grid-area: Sirocu;
+}
+/*areas grid left*/
+body > div:first-child #sword{
+    grid-area: swordLogo;
+}
+body > div:first-child #shield{
+    grid-area: shieldLogo;
+}
+body > div:first-child #hatchet{
+    grid-area: axLogo;
+}
+body > div:first-child #crossbow{
+    grid-area: crossbowLogo;
+}
+/*areas grid bottom*/
+body > div:first-child #esmerald{
+    grid-area: esmerald;
+}
+body > div:first-child #ruby{
+    grid-area: ruby;
+}
+body > div:first-child #diamond{
+    grid-area: diamond;
+}
+body > div:first-child #shappire{
+    grid-area: shappire;
+}
+/*areas grid right*/
+body > div:first-child #lightning{
+    grid-area: lightning;
+}
+body > div:first-child #ice{
+    grid-area: ice;
+}
+body > div:first-child #fire{
+    grid-area: fire;
+}
+body > div:first-child #wind{
+    grid-area: wind;
+}
+/*areas grid options*/
+body > div:first-child #top1{
+    grid-area: top1;
+}
+body > div:first-child #top2{
+    grid-area: top2;
+}
+body > div:first-child #left{
+    grid-area: left;
+}
+body > div:first-child #bottom1{
+    grid-area: bottom1;
+}
+body > div:first-child #bottom2{
+    grid-area: bottom2;
+}
+body > div:first-child #right{
+    grid-area: right;
+}
+body > div:first-child > #hero{
+    grid-area: hero;
+}
+/*areas grid fullscreen*/
+body > div:first-child{
+    grid-area: heros;
+    display: grid;
+    grid-template-areas: 
+    "top1      Witcher   Aragon    Vampire   Sirocu    top2"
+    "lightning hero hero hero hero swordLogo"
+    "ice       hero hero hero hero shieldLogo"
+    "fire      hero hero hero hero axLogo"
+    "wind      hero hero hero hero crossbowLogo"
+    "right     hero hero hero hero left"
+    "right     hero hero hero hero left"
+    "bottom1   esmerald  ruby      diamond   shappire     bottom2"
+    ;
+    grid-template-rows: 10vh auto auto auto auto auto auto auto;
+    grid-template-columns: 10vw auto auto auto auto 10vw;
+}
+/*areas grid options*/
+#options #header{
+    grid-area: options;
+}
+#options #magic{
+    grid-area: magic;
+}
+#options #weapons{
+    grid-area: weapons;
+}
+#options #gems{
+    grid-area: gems;
+}
+#options #actions{
+    grid-area: actions;
+}
+body > div:last-child > form{
+    grid-area: options;
+    display: grid;
+    grid-template-rows: 20vh 15vh 15vh 15vh 5vh;
+    grid-template-areas:
+    "options" "magic" "weapons" "gems" "actions";
+}
+body{
+    background-color: black;
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-areas: "heros options";
+    grid-template-rows: 100vh;
+    gap: 3%;
+}
+.btnHero{
+    margin: auto;
+}
+.btnHero button{
+    padding: 5px 50px;
+    color: white;
+    background-color:#2d446d;
+    border-radius: 100px;
+    border:1px solid transparent;
+    transition:.3s;
+    cursor: pointer;
+}
+.btnHero button:hover, .btn-active{
+    background-color:#e86a61!important;
+    border: 1px solid white!important;
+    transition:.3s!important;
+
+}
+.magic, .weapons, .gems{
+    margin: 5%;
+    border-radius: 30px;
+    border:2px solid gray;
+    background-size:contain;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    background-position: center;
+    background-color: white;
+}
+.magic{
+    background-size:cover;
+}
+.gems{
+    margin: 5% 20%!important;
+    filter: grayscale(70%)!important;
+}
+.active{
+    border: 2px solid yellow!important;
+    filter: grayscale(0%)!important;
+}
+/*images magic*/
+#lightning{
+    background-image:url(../img/lightning.png);
+}
+#ice{
+    background-image:url(../img/ice.png);
+}
+#fire{
+    background-image:url(../img/fire.png);
+}
+#wind{
+    background-image:url(../img/wind.png);
+}
+/*images weapons*/
+#sword{
+    background-image:url(../img/sword.png);
+}
+#shield{
+    background-image:url(../img/shield.png);
+}
+#hatchet{
+    background-image:url(../img/hatchet.png);
+}
+#crossbow{
+    background-image:url(../img/crossbow.png);
+}
+/*images gems*/
+#esmerald{
+    background-image:url(../img/esmerald.png);
+}
+#ruby{
+    background-image:url(../img/ruby.png);
+}
+#diamond{
+    background-image:url(../img/diamond.png);
+}
+#sapphire{
+    background-image:url(../img/sapphire.png);
+}
+/*image hero*/
+#hero{
+    background-image: url(../img/anonim.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/***********OPTIONS***********/
+#header > h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: blue;
+    margin: 5% 0;
+}
+
+body > div > form > div > h2{
+   color:yellow;
+   font-size: 2em;
+   font-family: "Times New Roman";
+   border-bottom:3px solid yellow;
+   margin-right:30%;
+}
+body > div > form > div > div:last-child{
+    margin: 5%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+body > div > form > div > div:last-child label{
+    margin: 0 3%;
+}
+
+#points{
+    position: absolute;
+    bottom:14%;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    height: 6%;
+}
+#points > div{
+    background:white;
+    width: 100%;
+    margin: 2%;
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    padding: 3% 0;
+}
+
+/********************MEDIA QUERYS*********************/
+@media (max-width:1150px){
+    /*grid main*/
+    body{
+        grid-template-rows: 100vh auto;
+        grid-template-columns:100%;
+        grid-template-areas: "heros" "options";
+    }
+    /*grid heros*/
+    body > div:first-child{
+        grid-template-columns: 15vw auto auto auto auto 15vw;
+    }
+    /*grid options*/
+    body > div:last-child > form{
+        grid-template-rows: 10vh 15vh 15vh 15vh 5vh;
+    }
+    body > div:last-child > form > div{
+        margin-left: 20px;
+    }
+    /*margin checkboxs*/
+    body > div:last-child > form > div > div:last-child{
+        margin:2%;
+    }
+}
+@media (max-width:968px){
+    body > div:first-child{
+        grid-template-columns: 150px auto auto auto auto 150px;
+    }
+}
+@media (max-width:899px){
+    body > div:first-child{
+        grid-template-areas: 
+        "Witcher   Aragon    Vampire   Sirocu"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "esmerald  ruby diamond   shappire"
+        "lightning ice  fire      wind"
+        "swordLogo shieldLogo axLogo crossbowLogo";
+        grid-template-rows: 10vh auto auto auto auto auto auto 10vh 15vh 15vh;
+        grid-template-columns: auto auto auto auto;
+    }
+    body > div:last-child > form > div > div:last-child{
+        margin:3% 0 0 2%;
+    }
+    body > div:last-child > form > div{
+        margin-left:0;
+    }
+    body > div:last-child > form > div > h2 {
+        padding-left: 2%;
+        margin: 0;
+    }
+    body > div:last-child > form > div h3{
+        margin:5% 0 5% 2%!important;
+    }
+    #points{
+        top:10%;
+        width: 40%;
+        height: 6%;
+    }
+}
+@media (max-width:600px){
+    body > div:first-child{
+        grid-template-areas:
+            "Witcher   Witcher   Witcher   Witcher"
+            "Aragon    Aragon    Aragon    Aragon"
+            "Vampire   Vampire   Vampire   Vampire"
+            "Sirocu    Sirocu    Sirocu    Sirocu"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "esmerald  ruby      diamond   shappire"
+            "lightning ice       fire      wind"
+            "swordLogo shieldLogo axLogo crossbowLogo";
+        grid-template-rows: 6vh 6vh 6vh 6vh auto auto auto auto auto auto  12vh 12vh 12vh;
+        grid-template-columns: auto auto auto auto;
+    }
+    #points{
+        top:26%;
+        left: 0;
+        width: 40%;
+        height: 6%;
+    }
+    body > div:last-child > form > div > div:last-child{
+        margin:3% 0 0 2%;
+    }
+    body > div:last-child > form > div{
+        margin-left:0;
+    }
+    body > div:last-child > form > div > h2 {
+        padding-left: 2%;
+        margin: 0;
+    }
+    body > div:last-child > form > div h3{
+        margin:5% 0 5% 2%!important;
+    }
+    .btnHero{
+        margin: 0;
+    }
+    .btnHero button{
+        width:100%;
+        height:100%;
+        border-radius:0;
+        font-size:1em;
+    }
+    .gems,.magic,.weapons{
+        margin: 1%!important;
+    }
+}
+/*****************************************************/

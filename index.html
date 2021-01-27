@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sCale=1.0">
+    <title>Save the maiden</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+    <div id="heros">
+        <!--heros' types-->
+            <div id="top1"></div>
+            <div id="Witcher" class="btnHero"><button id="witcher">Witcher</button></div>
+            <div id="Aragon" class="btnHero"><button id="aragon">Aragon</button></div>
+            <div id="Vampire" class="btnHero"><button id="vampire">Vampire</button></div>
+            <div id="Sirocu" class="btnHero"><button id="sirocu">Sirocu</button></div>
+            <div id="top2"></div>
+        <!--weapons-->
+            <div id="sword" class="weapons"></div>
+            <div id="shield" class="weapons"></div>
+            <div id="hatchet" class="weapons"></div>
+            <div id="crossbow" class="weapons"></div>
+            <div id="left"></div>
+        <!--gems-->
+            <div id="bottom1"></div>
+            <div id="esmerald" class="gems"></div>
+            <div id="ruby" class="gems"></div>
+            <div id="diamond" class="gems"></div>
+            <div id="sapphire" class="gems"></div>
+            <div id="bottom2"></div>
+        <!--magic-->
+            <div id="lightning" class="magic"></div>
+            <div id="ice" class="magic"></div>
+            <div id="fire" class="magic"></div>
+            <div id="wind" class="magic"></div>
+            <div id="right"></div>
+        <!--hero-->
+        <div id="hero"></div>
+    </div>
+    <div id="options">
+        <form method="POST">
+            <div id="header">
+                <h3>opciones</h3>
+            </div>
+            <div id="magic">
+                <h2>Magic</h2>
+                <div>
+                    <span><input type="checkbox" name="fire" id="fireCheck" class="magicCheck"><label for="fireCheck">Fire</label></span>
+                    <span><input type="checkbox" name="ice" id="iceCheck" class="magicCheck"><label for="iceCheck">Ice</label></span>
+                    <span><input type="checkbox" name="lightning" id="lightningCheck" class="magicCheck"><label for="lightningCheck">lightning</label></span>
+                    <span><input type="checkbox" name="wind" id="windCheck" class="magicCheck"><label for="windCheck">Wind</label></span>                    
+                </div>
+            </div>
+            <div id="weapons">
+                <h2>Weapons</h2>
+                <div>
+                    <span><input type="checkbox" name="sword" id="swordCheck" class="weaponsCheck"><label for="swordCheck">Sword</label></span>
+                    <span><input type="checkbox" name="hatchet" id="hatchetCheck" class="weaponsCheck"><label for="hatchetCheck">Hatchet</label></span>
+                    <span><input type="checkbox" name="shield" id="shieldCheck" class="weaponsCheck"><label for="shieldCheck">Shield</label></span>
+                    <span><input type="checkbox" name="crossbow" id="crossbowCheck" class="weaponsCheck"><label for="crossbowCheck">Crossbow</label></span>
+                </div>
+            </div>
+            <div id="gems">
+                <h2>Gems</h2>
+                <div>
+                    <span><input type="checkbox" name="diamond" id="diamondCheck" class="gemsCheck"><label for="diamondCheck">Diamond</label></span>
+                    <span><input type="checkbox" name="esmerald" id="esmeraldCheck" class="gemsCheck"><label for="esmeraldCheck">Esmerald</label></span>
+                    <span><input type="checkbox" name="ruby" id="rubyCheck" class="gemsCheck"><label for="rubyCheck">Ruby</label></span>
+                    <span><input type="checkbox" name="sapphire" id="sapphireCheck" class="gemsCheck"><label for="sapphireCheck">Sapphire</label></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="showAlert"></div>
+    <div id="points">
+        <div id="attack"></div>
+        <div id="defenser"></div>
+        <div id="speed"></div>
+    </div>
+</body>
+</html>
